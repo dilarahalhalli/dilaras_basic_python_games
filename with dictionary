@@ -1,0 +1,22 @@
+import random
+
+choices = ["rock", "paper", "scissors", "lizard", "spock"]
+win_rules = {
+    "rock": ["scissors", "lizard"],
+    "paper": ["rock", "spock"],
+    "scissors": ["paper", "lizard"],
+    "lizard": ["spock", "paper"],
+    "spock": ["rock", "scissors"]
+}
+
+print("Let's play rock, paper, scissors, lizard, spock")
+player_choice = input("Choose rock, paper, scissors, lizard, spock: ").lower()
+computer_choice = random.choice(choices)
+print("Computer choice:", computer_choice)
+
+if computer_choice in win_rules[player_choice]:
+    print("You won!")
+elif player_choice in win_rules[computer_choice]:
+    print("Computer won!")
+else:
+    print("It's a tie!")
