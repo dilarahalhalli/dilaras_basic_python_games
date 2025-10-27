@@ -1,24 +1,34 @@
 import random
 print("Let's play rock, paper, scissors, lizard, spock")
-player_choice=input("Choose rock, paper, scissors, lizard, spock: ").lower()
-choices=["rock", "paper", "scissors", "lizard", "spock"]
-computer_choice = random.choice(choices)
-print("Computer choice: ", computer_choice)
-if (player_choice == "rock" and computer_choice == "scissors") or (player_choice == "scissors" and computer_choice == "paper") or (player_choice == "paper" and computer_choice == "rock") or 
-(player_choice == "rock" and computer_choice == "lizard") or (player_choice == "spock" and computer_choice == "scissors") or (player_choice == "scissors" and computer_choice == "lizard") or 
-(player_choice == "lizard" and computer_choice == "paper") or (player_choice == "paper" and computer_choice == "spock") or (player_choice == "spock" and computer_choice == "rock") or 
-(player_choice == "lizard" and computer_choice == "spock"):
-  winner="Player"
-elif (player_choice == "scissors" and computer_choice == "rock") or (player_choice == "paper" and computer_choice == "scissors") or (player_choice == "rock" and computer_choice == "paper") or 
-(player_choice == "lizard" and computer_choice == "rock") or (player_choice == "scissors" and computer_choice == "spock") or (player_choice == "lizard" and computer_choice == "scissors") or 
-(player_choice == "paper" and computer_choice == "lizard") or (player_choice == "spock" and computer_choice == "paper") or (player_choice == "rock" and computer_choice == "spock") or 
-(player_choice == "spock" and computer_choice == "lizard"):
-  winner="Computer"
+player_wins= 0
+computer_wins= 0
+while player_wins < 3 and computer_wins < 3 :
+  player_choice=input("Choose rock, paper, scissors, lizard, spock: ").lower()
+  choices=["rock", "paper", "scissors", "lizard", "spock"]
+  computer_choice = random.choice(choices)
+  print("Computer choice: ", computer_choice)
+  if (player_choice == "rock" and computer_choice == "scissors") or (player_choice == "scissors" and computer_choice == "paper") or (player_choice == "paper" and computer_choice == "rock") or 
+  (player_choice == "rock" and computer_choice == "lizard") or (player_choice == "spock" and computer_choice == "scissors") or (player_choice == "scissors" and computer_choice == "lizard") or 
+  (player_choice == "lizard" and computer_choice == "paper") or (player_choice == "paper" and computer_choice == "spock") or (player_choice == "spock" and computer_choice == "rock") or 
+  (player_choice == "lizard" and computer_choice == "spock"):
+    winner="Player"
+  elif (player_choice == "scissors" and computer_choice == "rock") or (player_choice == "paper" and computer_choice == "scissors") or (player_choice == "rock" and computer_choice == "paper") or 
+  (player_choice == "lizard" and computer_choice == "rock") or (player_choice == "scissors" and computer_choice == "spock") or (player_choice == "lizard" and computer_choice == "scissors") or 
+  (player_choice == "paper" and computer_choice == "lizard") or (player_choice == "spock" and computer_choice == "paper") or (player_choice == "rock" and computer_choice == "spock") or 
+  (player_choice == "spock" and computer_choice == "lizard"):
+    winner="Computer"
+  else:
+    winner="Tie"
+  if winner=="Player":
+    player_wins += 1
+    print("You won")
+  elif winner=="Computer":
+    computer_wins += 1
+    print("Computer won")
+  else:
+    print("It's a tie")
+  print(f"Current Score - Player: {player_wins}, Computer: {computer_wins}")
+if player_wins > computer_wins:
+  print("Congratulations! You won.")
 else:
-  winner="Tie"
-if winner=="Player":
-  print("You won")
-elif winner=="Computer":
-  print("Computer won")
-else:
-  print("It's a tie")
+   print("Computer won!")
